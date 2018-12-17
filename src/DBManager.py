@@ -2,14 +2,6 @@
 # -*- coding: utf-8 -*-
 import sys, MySQLdb
 
-"""
-TODO
-[x] Empezar a programar :v
-[] Documentar todo el codigo
-[] Hacer todos los metodos relacionados a la manipulacion de la base de datos
-[] Hacer testing 
-"""
-
 class DBManager():
 
 	HOSTNAME = ''
@@ -19,44 +11,44 @@ class DBManager():
 	PORT     = ''
 	SOCKET   = ''
 
-	_connection = None
-	_cursor     = None
+	__connection = None
+	__cursor     = None
 
 	""" 
 	Metodos principales que gestionan la parte mas importante del proyecto
 	que es el manejo de la base de datos con los debidos metodos.
 	"""
-	def _connectioToMySQL(self):
+	def __connectioToMySQL(self):
 		try:
-			self._connection = MySQLdb.Connection(self.HOSTNAME,self.USERNAME,self.PASSWORD,self.DATABASE)
-			self._cursor = self._connection.cursor()
+			self.__connection = MySQLdb.Connection(self.HOSTNAME,self.USERNAME,self.PASSWORD,self.DATABASE)
+			self.__cursor = self.__connection.cursor()
 		except MySQLdb.Error, e:
 			return e
 
-	def _closeConnection(self):
-		self._connection.close()
-		self._cursor.close()
+	def __closeConnection(self):
+		self.__connection.close()
+		self.__cursor.close()
 
-	def _getQueryResult(self,query):
+	def __getQueryResult(self,query):
 		"""
         Procesa la peticio que se envia
         :param str query:		sentencia SQL
         """
 		try:
-			self._connectioToMySQL()
-			self._cursor.execute(query)
-			result = self._cursor.fetchall()
-			self._closeConnection()
+			self.__connectioToMySQL()
+			self.__cursor.execute(query)
+			result = self.__cursor.fetchall()
+			self.__closeConnection()
 			return result
 		except MySQLdb.Error, e:
 			return e
 
 	def _executeQueryResult(self,query):
 		try:
-			self._connectioToMySQL()
-			self._cursor.execute(query)
-			self._connection.commit()
-			self._closeConnection()
+			self.__connectioToMySQL()
+			self.__cursor.execute(query)
+			self.__connection.commit()
+			self.__closeConnection()
 		except MySQLdb.Error, e:
 			return e
 
@@ -65,26 +57,20 @@ class DBManager():
 	todos son para la administracion.
 	"""
 	def showDatabases(self):
-		return self._getQueryResult('SHOW DATABASES;')
+		return self.__getQueryResult('SHOW DATABASES;')
 
 	def useDatabase(self,database):
-		return self._getQueryResult('USE ' + database + ';')
+		return self.__getQueryResult('USE ' + database + ';')
 
 	def createDatabase(self,name):
-		return self._getQueryResult('CREATE DATABASE '+ name + ' CHARACTER SET utf8 COLLATE utf8_general_ci;')
+		return self.__getQueryResult('CREATE DATABASE '+ name + ' CHARACTER SET utf8 COLLATE utf8_general_ci;')
 
 	def dropDatabase(self,name):
-		return self._getQueryResult('DROP DATABASE ' + name + ';')
+		return self.__getQueryResult('DROP DATABASE ' + name + ';')
 
 	"""
 	Metodos asociado con el manejo de tablas dentro de la base de datos
 	"""
 	def showTables(self):
-		pass
-
-	def createTable(self,name,**arg):
-		e = """
-		CREATE TABLE PRODUCTOS();
-		"""
-		pass
+		return self.__getQueryResult('SHOW TABLES')
 		

@@ -1,0 +1,30 @@
+{
+    "es":{
+        "menubar":{
+            "menuFile":"&Archivo",
+            "menuEdit":"&Editar",
+            "menuHelp":"&Ayuda",
+            "menuTool":"&Herramientas",
+            "menuDatabase":"&Base de datos",
+            "fileSubMenuOpen":"Abrir",
+            "fileSubMenuSave":"Guardar",
+            "fileSubMenuExport":"Exportar",
+            "fileSubMenuClose":"Cerrar",
+            "editSubMenuPreferences":"Preferencias",
+            "editSubMenuConnection":"Conexion",
+            "toolSubMenuExecute":"Ejecutar",
+            "toolSubMenuTerminal":"Terminal",
+            "databaseSubMenuNew":"Nueva",
+            "databaseSubMenuDelete":"Eliminar",
+            "databaseSubMenuView":"Crear vista",
+            "databaseSubMenuProcedure":"Crear procedimiento almacenado",
+            "databaseSubMenuTrigger":"Crear disparador",
+            "helpSubMenuAbout":"Acerca de",
+            "helpSubMenuHelp":"Help"
+        },
+        "toolbar":{},
+        "interface":{},
+        "tooltip":{}
+        
+    }
+}
