@@ -46,17 +46,3 @@ class UserSetting():
 				json.dump(self.data,file)
 		except Exception as e:
 			return e
-
-"""
-us = UserSetting()
-
-print(us.countConnections())
-print(us.deleteConnections('concon2'))
-print(us.countConnections())
-
-print(us.countConnections())
-us.addConnection('mconexion','juan','23456','localhost')
-us.writeData()
-print(us.countConnections())
-
-"""
