@@ -73,4 +73,7 @@ class DBManager():
 	"""
 	def showTables(self):
 		return self.__getQueryResult('SHOW TABLES')
-		
+
+	def ifConnectioToMySQL(self):
+		e = self.__connectioToMySQL()
+		return e

@@ -1,6 +1,14 @@
+#!/usr/bin/python3
+# -*- codign: utf-8 -*-
+
 import wx
+import wx.aui
+from DBManager import DBManager
+from UserSetting import UserSetting
 
 class Katomo(wx.Frame):
+
+	ifOpenConnection = False
 	
 	def __init__(self,parent):
 		wx.Frame.__init__(self,parent,-1)
@@ -8,6 +16,11 @@ class Katomo(wx.Frame):
 		self.SetTitle("titulo")
 		self.Centre()
 		self.Show()
+
+		self.DBManager = DBManager()
+		self.UserSetting = UserSetting()
+
+		self.OpenDatabase()
 
 		self.menu()
 		self.toolbar()
@@ -61,6 +74,15 @@ class Katomo(wx.Frame):
 	
 	def connect( self, event ):
 		event.Skip()
+
+
+	# Events default
+	def OpenDatabase(self):
+		e = self.DBManager.ifConnectioToMySQL()
+		if e:
+			wx.MessageBox(str(e),"Error", wx.OK | wx.ICON_INFORMATION)
+		else:
+			self.ifOpenConnection = True
 
 
 app = wx.App()

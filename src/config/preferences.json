@@ -1,11 +1,1 @@
-{
-    "connection":{
-        "username":"root",
-        "password":"",
-        "hostname":"127.0.0.1",
-        "port":3306,
-        "socket":""
-    },
-    "lang":"es",
-    "excludedb":[]
-}
+{"lang": "es", "excludedb": [], "connections": {"mconexion": {"username": "juan", "password": "23456", "hostname": "localhost"}, "concon": {"username": "root", "password": "", "hostname": "127.0.0.1"}, "myconn": {"username": "root", "password": "", "hostname": "127.0.0.1"}, "concon2": {"username": "root", "password": "", "hostname": "127.0.0.1"}}}
